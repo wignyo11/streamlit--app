@@ -79,6 +79,8 @@ def show_dashboard(penj: pd.DataFrame, pemb: pd.DataFrame):
           .assign(laba=lambda x: x.total_penjualan - x.jumlah_pembelian)
     )
 
+    df[['total_penjualan', 'jumlah_pembelian', 'laba']] = df[['total_penjualan', 'jumlah_pembelian', 'laba']].astype(float)
+
     pend = int(df.loc[df['bulan']==bulan_ini, 'total_penjualan'].sum())
     beb  = int(df.loc[df['bulan']==bulan_ini, 'jumlah_pembelian'].sum())
 
